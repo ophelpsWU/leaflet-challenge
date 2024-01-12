@@ -33,7 +33,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
             weight: 1,
             fillColor: getColor(quakes[i].geometry.coordinates[2]),
             radius: quakes[i].properties.mag * 10000,
-        }).bindPopup(`<h1>${new Date(quakes[i].properties.time)}</h1> <hr> <a href="${quakes[i].properties.url}">Details</a>`).addTo(myMap);
+        }).bindTooltip(`Lat: ${quakes[i].geometry.coordinates[1]}<br>Lng: ${quakes[i].geometry.coordinates[0]}<br>Depth: ${quakes[i].geometry.coordinates[2]}<br>Magnitude: ${quakes[i].properties.mag}`).bindPopup(`<h1>${new Date(quakes[i].properties.time)}</h1> <hr> <a href="${quakes[i].properties.url}">Details</a>`).addTo(myMap);
     };
 
     // Set up the legend.
